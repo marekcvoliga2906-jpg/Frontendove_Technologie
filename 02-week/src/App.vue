@@ -4,35 +4,57 @@ import { ref,computed } from 'vue'
 
 const count = ref(0)
 
+const headingClass = computed(() => {
+  return {
+    zelena: count.value > 0,
+    cervena: count.value < 0,
+    siva: count.value == 0
+  };
+});
+
+const squared = computed(() => {
+  return count.value * count.value
+})
+
+
 function increment() {
-  count.value++
+  if (count.value < 5) {
+    count.value++;
+  }
+  else{
+    hidden
+  }
 }
 
 function decrement() {
-  count.value--
+  if (count.value>5){
+count.value--
+  }
+else{
+    hidden
+  }
 }
 
 function reset() {
   count.value = 0
 }
 
-const doubleCount = computed(() => {
-  return count.value * 2
-})
-
 </script>
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />    
+  <header> 
   </header>
 
-  
-  <button @click="increment">Pridať</button>
-  <button @click="decrement">Odobrať</button>
-  <button @click="reset">Reset</button>
+  <h2 :class="headingClass">
+  Current count: {{ count }}
+  </h2>
   <br>
-  <p>Počet: {{ count }}</p>
-  <p>Dvojnásobok: {{ doubleCount }}</p>
+  <p>Druhá mocnina: {{ squared }}</p>
+  <br>
+  <div class="button-group">
+  <button @click="increment">increment</button>
+  <button @click="decrement">decrement</button>
+  <button @click="reset">reset</button>
+  </div>
 
 </template>
 
@@ -62,5 +84,15 @@ header {
     place-items: flex-start;
     flex-wrap: wrap;
   }
+  .cervena { background-color: red; }
+  .zelena  { background-color: green; }
+  .siva    { background-color: gray; }
+
+  .button-group {
+  display: flex;
+}
+
+.hidden { display: none; } 
+
 }
 </style>
