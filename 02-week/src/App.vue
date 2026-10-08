@@ -21,17 +21,11 @@ function increment() {
   if (count.value < 5) {
     count.value++;
   }
-  else{
-    hidden
-  }
 }
 
 function decrement() {
-  if (count.value>5){
-count.value--
-  }
-else{
-    hidden
+  if (count.value > -5) {
+    count.value--;
   }
 }
 
@@ -51,8 +45,8 @@ function reset() {
   <p>Druhá mocnina: {{ squared }}</p>
   <br>
   <div class="button-group">
-  <button @click="increment">increment</button>
-  <button @click="decrement">decrement</button>
+  <button v-if="count < 5" @click="increment">increment</button>
+  <button v-if="count > -5" @click="decrement">decrement</button>
   <button @click="reset">reset</button>
   </div>
 
@@ -84,15 +78,14 @@ header {
     place-items: flex-start;
     flex-wrap: wrap;
   }
-  .cervena { background-color: red; }
-  .zelena  { background-color: green; }
-  .siva    { background-color: gray; }
-
-  .button-group {
-  display: flex;
 }
 
-.hidden { display: none; } 
+.cervena { background-color: red; }
+.zelena  { background-color: green; }
+.siva    { background-color: gray; }
 
+.button-group {
+  display: flex;
+  gap: 0.5rem;
 }
 </style>
