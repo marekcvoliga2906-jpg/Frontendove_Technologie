@@ -1,0 +1,19 @@
+Create a new Vue project:
+npm create vite@latest my-project
+Choose:
+Framework: Vue
+Variant: JavaScript
+Then Run:
+cd my-project
+npm install
+npm run dev
+
+Typical workflow:
+npm create vite@latest my-project
+cd my-project
+npm install
+npm run dev
+
+Error handling: 
+Get-ExecutionPolicy -List
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
