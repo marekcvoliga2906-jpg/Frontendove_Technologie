@@ -1,5 +1,5 @@
 Create a new Vue project:
-npm create vite@latest my-project
+npm create vue@latest
 Choose:
 Framework: Vue
 Variant: JavaScript
@@ -9,7 +9,7 @@ npm install
 npm run dev
 
 Typical workflow:
-npm create vite@latest my-project
+npm create vue@latest
 cd my-project
 npm install
 npm run dev
