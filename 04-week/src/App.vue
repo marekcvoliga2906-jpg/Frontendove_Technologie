@@ -7,8 +7,18 @@ const items = ref([
   { name: "Fero", znamka: 4, poznamka: "" }
 ])
 
-function pridajElement(name,znamka){
-  items.value.push(name,znamka,1)
+const meno = ref('')
+const znamka = ref(null)
+
+function pridajElement() {
+  const menoStudenta = meno.value.trim()
+  const znamkaStudenta = Number(znamka.value)
+
+  if (!menoStudenta || !Number.isFinite(znamkaStudenta)) return
+
+  items.value.push({ name: menoStudenta, znamka: znamkaStudenta, poznamka: '' })
+  meno.value = ''
+  znamka.value = null
 }
 
 function vymazElement(index){
@@ -50,12 +60,12 @@ function vymazElement(index){
     </div>
   </div>
 
-  <form>
+  <form @submit.prevent="pridajElement">
     <p>Meno</p>
-    <input type="text" v-bind="">
+    <input v-model.trim="meno" type="text">
     <p>Znamka</p>
-    <input type="int" v-model="">
-    <button @click="pridajElement(meno,znamka)">Pridaj</button>
+    <input v-model.number="znamka" type="number" min="1" max="5">
+    <button type="submit">Pridaj</button>
   </form>
 </template>
 
