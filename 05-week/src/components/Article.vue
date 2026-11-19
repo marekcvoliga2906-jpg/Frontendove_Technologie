@@ -5,10 +5,10 @@ defineProps({
   },
   text: {
     type: String,
-  }
-})
+  },
+});
 
-const emit = defineEmits(['enlarge-text'])
+const emit = defineEmits(["enlarge-text"]);
 </script>
 
 <template>
@@ -26,7 +26,7 @@ const emit = defineEmits(['enlarge-text'])
   padding: 20px;
   margin-bottom: 16px;
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 .article-card h2 {
   margin-top: 0;
